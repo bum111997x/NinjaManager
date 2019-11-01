@@ -32,3 +32,12 @@ Route::prefix('ninja')->group(function () {
     Route::get('delete/{id}','NinjaController@delete')->name('ninja.delete');
     Route::get('search','NinjaController@search')->name('ninja.search');
 });
+
+Route::prefix('city')->group(function (){
+    Route::get('/','CityController@index')->name('city.index');
+    Route::get("/create","CityController@create")->name('city.create');
+    Route::post("/store","CityController@store")->name('city.store');
+    Route::get('/edit/{id}','CityController@edit')->name('city.edit');
+    Route::post('/edit/{id}','CityController@update')->name('city.update');
+    Route::get('/list/{id}','CityController@list')->name('city.list');
+});

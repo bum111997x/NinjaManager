@@ -15,7 +15,8 @@
                     </div>
                     <div class="form-group">
                         <label for="dateOfBirth">Date Of Birth</label>
-                        <input type="date" class="form-control" id="dateOfBirth" name="dateOfBirth" value="{{$ninja->dateOfBirth}}">
+                        <input type="" class="form-control" id="dateOfBirth" name="dateOfBirth"
+                               value="{{$ninja->dateOfBirth}}">
                     </div>
                     <div class="form-group">
                         <label for="role">Role</label>
@@ -27,11 +28,23 @@
                     </div>
                     <div class="form-group">
                         <label for="specialSkill">Address</label>
-                        <input type="text" class="form-control" id="specialSkill" name="specialSkill" value="{{$ninja->specialSkill}}">
+                        <input type="text" class="form-control" id="specialSkill" name="specialSkill"
+                               value="{{$ninja->specialSkill}}">
+                    </div>
+                    <div>
+                        <select name="city_id">
+                            @foreach($cities as $city)
+                                <option @if($ninja->city_id === $city->id)
+                                        selected
+                                        @endif
+                                        value="{{$city->id}}">{{$city->name}}</option>
+                            @endforeach
+                        </select>
+
                     </div>
                     <div class="form-group">
                         <label>Image</label>
-                        <img src="{{asset('storage/'. $ninja->image)}}"  style="width: 150px; height: 120px">
+                        <img src="{{asset('storage/'. $ninja->image)}}" style="width: 150px; height: 120px">
                         <input type="file" class="form-control-file" id="file" name="image">
                     </div>
                     <button type="submit" class="btn btn-primary">Update</button>

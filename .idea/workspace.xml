@@ -1,7 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87b17753-f47f-4c67-a26f-e048e5da034f" name="Default Changelist" comment="" />
+    <list default="true" id="87b17753-f47f-4c67-a26f-e048e5da034f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Repositories/CityRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Repositories/Eloquent/CityEloquentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Repositories/Eloquent/NinjaEloquentRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Repositories/NinjaRepositoryInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/CityServiceInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/Impl/CityService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/Impl/NinjaService.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Services/NinjaServiceInterface.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/city/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/city/edit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/city/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/city/list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NinjaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NinjaController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Ninja.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Ninja.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AppServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_28_043919_drop_column_image_to_ninjas_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/customer/search.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +39,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -105,10 +134,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Soi8R7qw6JZdJDsl1N2jAm3ZNE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/storage/app/public/background" />
     <property name="nodejs_package_manager_path" value="yarn" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\NinjaManager\storage\app\public\background" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\NinjaManager\resources\views\customer" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -140,21 +178,27 @@
       <updated>1572236189424</updated>
       <workItem from="1572236190660" duration="9624000" />
       <workItem from="1572249220083" duration="11666000" />
-      <workItem from="1572312235375" duration="3116000" />
+      <workItem from="1572312235375" duration="3335000" />
+      <workItem from="1572331360827" duration="453000" />
+      <workItem from="1572332067696" duration="12000" />
+      <workItem from="1572332195679" duration="54346000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/edit.blade.php</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

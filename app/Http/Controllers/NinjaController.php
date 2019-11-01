@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
+use App\Http\Requests\CreateNinjaRequest;
+use App\Http\Services\Impl\CityService;
+use App\Http\Services\Impl\NinjaService;
 use App\Ninja;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -10,89 +14,63 @@ use Illuminate\Support\Facades\Storage;
 
 class NinjaController extends Controller
 {
-    protected $ninja;
+    protected $ninjaService;
+    protected $cityService;
 
-    public function __construct(Ninja $ninja)
+    public function __construct(NinjaService $ninjaService, CityService $cityService)
     {
-        $this->ninja = $ninja;
+        $this->ninjaService = $ninjaService;
+        $this->cityService = $cityService;
         $this->middleware('auth');
     }
 
     public function index()
     {
-        $ninjas = $this->ninja->all();
+        $ninjas = $this->ninjaService->getAll();
+        $cities = $this->cityService->getAll();
 
-        return view('index', compact('ninjas'));
+        return view('customer.index', compact('ninjas', 'cities'));
     }
 
     public function create()
     {
-        return view('create');
+        $cities = $this->cityService->getAll();
+        return view('customer.create', compact('cities'));
     }
 
-    public function store(Request $request)
+    public function store(CreateNinjaRequest $request)
     {
-        $this->ninja->name = $request->name;
-        $this->ninja->dateOfBirth = $request->dateOfBirth;
-        $this->ninja->role = $request->role;
-        $this->ninja->address = $request->address;
-        $this->ninja->specialSkill = $request->specialSkill;
-
-        if (!$request->hasFile('image')) {
-            $this->ninja->image = $request->image;
-        } else {
-            $file = $request->file('image');
-            $path = $file->store('image', 'public');
-            $this->ninja->image = $path;
-        }
-
-        $this->ninja->save();
+        $this->ninjaService->store($request);
 
         return redirect()->route('ninja.index');
     }
 
     public function delete($id)
     {
-        $ninja = $this->ninja->findOrFail($id);
-        File::delete(storage_path('app\public\\' . $ninja->image));
-        $ninja->delete();
+        $this->ninjaService->delete($id);
 
         return redirect()->route('ninja.index');
     }
 
     public function edit($id)
     {
-        $ninja = $this->ninja->findOrFail($id);
+        $ninja = $this->ninjaService->findById($id);
+        $cities = $this->cityService->getAll();
 
-        return view('edit', compact('ninja'));
+        return view('customer.edit', compact('ninja', 'cities'));
     }
 
-    public function update(Request $request, $id)
+    public function update(CreateNinjaRequest $request, $id)
     {
-        $ninja = $this->ninja->findOrFail($id);
+        $this->ninjaService->update($request,$id);
 
-        if ($request->image) {
-            File::delete(storage_path('app\public\\' . $ninja->image));
-            $file = $request->file('image');
-            $path = $file->store('image', 'public');
-            $ninja->image = $path;
-        }
-
-        $ninja->name = $request->name;
-        $ninja->dateOfBirth = $request->dateOfBirth;
-        $ninja->role = $request->role;
-        $ninja->address = $request->address;
-        $ninja->specialSkill = $request->specialSkill;
-
-        $ninja->save();
         return redirect()->route('ninja.index');
     }
 
     public function search(Request $request)
     {
-        $search = $request->get('search');
-        $DBSearch = DB::table('ninjas')->where('name','LIKE',"%$search%")->get();
+        $DBSearch = $this->ninjaService->search($request);
 
-        return view('layouts.search',compact('DBSearch'));
+        return view('customer.search', compact('DBSearch'));
     }
 }
